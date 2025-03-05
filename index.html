@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="frontend/tcul_img/home/archer_favicon.png">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="frontend/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="frontend/assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./owl.carousel.min.css ">
+    <link rel="stylesheet" href="./owl.theme.default.min.css">
+    <link rel="stylesheet" href="frontend/assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="frontend/assets/plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="frontends/assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="frontends/assets/plugins/aos/aos.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="frontends/assets/plugins/feather/feather.css">
+    <link rel="stylesheet" href="./technicul.css">
+    <link rel="stylesheet" href="frontend/assets/plugins/swiper/css/swiper.min.css">
+    <script src="backend/dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="frontends/assets/js/theme-script.js" type="ad82ed1f8bc95a9fd3f001de-text/javascript"></script>
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPRY</title>
+</head>
+
+<style>
+            /* Background Image Fallback */
+            .banner {
+            /* background-image: url('./src/Screenshot\ 2025-03-04\ 220535.png'); */
+            background-color: #e0fbfc;
+            background-size: cover  ;
+            /* fallback color */ }
+</style>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white-200 text-white p-4 fixed w-full top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-2xl font-bold" aria-label="Go to homepage">SPRY</a>
+            <ul id="navLinks" class="hidden md:flex space-x-6">
+                <li>
+                    <a href="#"
+                        class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Home</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Courses</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Why
+                        Us</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Pricing</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Contact</a>
+                </li>
+            </ul>
+            <!-- Mobile menu button -->
+            <button id="menuButton" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section class="relative banner h-screen bg-cover bg-center">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-in">Take Your Business at Global level</h1>
+            <p class="text-lg md:text-2xl mb-8 animate-in">join us to unleash new doors.</p>
+            <button
+                onclick="window.location.href='https://wa.me/+918949551269?text=I%27m%20interested%20to%20book%20demo'"
+                class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transform transition-all duration-300 hover:-translate-y-2 animate-in">
+                Contact Us
+            </button>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section-five bg-gray-900 py-12">
+        <div class="container mx-auto">
+            <div class="header-five-title text-center" data-aos="fade-down">
+                <h2 class="text-warning text-3xl font-bold">They Trusted Us</h2>
+                <p class="text-white mt-2">We are very happy because we have happy customers</p>
+            </div>
+            <div class="testimonial-slider-five mt-8">
+                <div class="testimonial-five flex overflow-x-auto gap-4">
+                    <!-- Testimonial Item 1 -->
+                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <div class="testimonial-content-five">
+                            <div class="testimonial-text mb-4">
+                                <p class="text-gray-700 italic">"Under ACA’s superb guidance, my son got an
+                                    international Rating. Thanks to team ACA. My Devesh has been learning with ACA for
+                                    the last 5 years and won so many tournaments."</p>
+                            </div>
+                            <div class="testimonial-users-group flex items-center justify-between">
+                                <div class="testimonial-users">
+                                    <h5 class="font-semibold text-gray-800">Devesh’s Mom</h5>
+                                    <p class="text-gray-500">Mumbai</p>
+                                </div>
+                                <div class="testimonial-ratings-five flex items-center space-x-1">
+                                    <div class="rating flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-gray-300"></i>
+                                    </div>
+                                    <p class="text-gray-500 text-sm">4.5<span class="ml-1">ratings</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-image mt-4">
+                            <img class="rounded-full w-16 h-16 mx-auto" src="frontend/tcul_img/review/devesh.png"
+                                alt="Devesh">
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Item 2 -->
+                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in"
+                        data-aos-delay="200">
+                        <div class="testimonial-content-five">
+                            <div class="testimonial-text mb-4">
+                                <p class="text-gray-700 italic">"It’s awesome. Initially, I thought only for two months,
+                                    and I didn’t know whether my kid would like this or not. But now she has been
+                                    learning for the last year and really enjoying the class."</p>
+                            </div>
+                            <div class="testimonial-users-group flex items-center justify-between">
+                                <div class="testimonial-users">
+                                    <h5 class="font-semibold text-gray-800">Architha FIDE Rated Player</h5>
+                                    <p class="text-gray-500">Prayagraaj</p>
+                                </div>
+                                <div class="testimonial-ratings-five flex items-center space-x-1">
+                                    <div class="rating flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-gray-300"></i>
+                                    </div>
+                                    <p class="text-gray-500 text-sm">4.5<span class="ml-1">ratings</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-image mt-4">
+                            <img class="rounded-full w-16 h-16 mx-auto" src="frontend/tcul_img/review/male.png"
+                                alt="Architha">
+                        </div>
+                    </div>
+                    <!-- Testimonial Item 2 -->
+                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in"
+                        data-aos-delay="200">
+                        <div class="testimonial-content-five">
+                            <div class="testimonial-text mb-4">
+                                <p class="text-gray-700 italic">"It’s awesome. Initially, I thought only for two months,
+                                    and I didn’t know whether my kid would like this or not. But now she has been
+                                    learning for the last year and really enjoying the class."</p>
+                            </div>
+                            <div class="testimonial-users-group flex items-center justify-between">
+                                <div class="testimonial-users">
+                                    <h5 class="font-semibold text-gray-800">Architha FIDE Rated Player</h5>
+                                    <p class="text-gray-500">Prayagraaj</p>
+                                </div>
+                                <div class="testimonial-ratings-five flex items-center space-x-1">
+                                    <div class="rating flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-gray-300"></i>
+                                    </div>
+                                    <p class="text-gray-500 text-sm">4.5<span class="ml-1">ratings</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-image mt-4">
+                            <img class="rounded-full w-16 h-16 mx-auto" src="frontend/tcul_img/review/male.png"
+                                alt="Architha">
+                        </div>
+                    </div>
+                    <!-- Testimonial Item 2 -->
+                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in"
+                        data-aos-delay="200">
+                        <div class="testimonial-content-five">
+                            <div class="testimonial-text mb-4">
+                                <p class="text-gray-700 italic">"It’s awesome. Initially, I thought only for two months,
+                                    and I didn’t know whether my kid would like this or not. But now she has been
+                                    learning for the last year and really enjoying the class."</p>
+                            </div>
+                            <div class="testimonial-users-group flex items-center justify-between">
+                                <div class="testimonial-users">
+                                    <h5 class="font-semibold text-gray-800">Architha FIDE Rated Player</h5>
+                                    <p class="text-gray-500">Prayagraaj</p>
+                                </div>
+                                <div class="testimonial-ratings-five flex items-center space-x-1">
+                                    <div class="rating flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-gray-300"></i>
+                                    </div>
+                                    <p class="text-gray-500 text-sm">4.5<span class="ml-1">ratings</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-image mt-4">
+                            <img class="rounded-full w-16 h-16 mx-auto" src="frontend/tcul_img/review/male.png"
+                                alt="Architha">
+                        </div>
+                    </div>
+                    <!-- Testimonial Item 2 -->
+                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in"
+                        data-aos-delay="200">
+                        <div class="testimonial-content-five">
+                            <div class="testimonial-text mb-4">
+                                <p class="text-gray-700 italic">"It’s awesome. Initially, I thought only for two months,
+                                    and I didn’t know whether my kid would like this or not. But now she has been
+                                    learning for the last year and really enjoying the class."</p>
+                            </div>
+                            <div class="testimonial-users-group flex items-center justify-between">
+                                <div class="testimonial-users">
+                                    <h5 class="font-semibold text-gray-800">Architha FIDE Rated Player</h5>
+                                    <p class="text-gray-500">Prayagraaj</p>
+                                </div>
+                                <div class="testimonial-ratings-five flex items-center space-x-1">
+                                    <div class="rating flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-gray-300"></i>
+                                    </div>
+                                    <p class="text-gray-500 text-sm">4.5<span class="ml-1">ratings</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-image mt-4">
+                            <img class="rounded-full w-16 h-16 mx-auto" src="frontend/tcul_img/review/male.png"
+                                alt="Architha">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Contact Floating Button -->
+    <a href="https://wa.me/1234567890"
+        class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition hover:scale-110 transform duration-300"
+        target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- New Section to be added before "Why Choose Us" -->
+    <section class="py-16 px-8 bg-blue-900 text-white text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4 animate-in">Unlock Your Full Chess Potential</h2>
+        <p class="mb-8 animate-in">Whether you're just starting or aiming for master level, King's Kingdom Academy
+            offers the best resources and coaching for you.</p>
+        <button onclick="window.location.href='https://wa.me/+918949551269?text=I%27m%20interested%20to%20book%20demo'"
+            class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transform transition-all duration-300 hover:-translate-y-2 animate-in">
+            Book Free Demo Now
+        </button>
+    </section>
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white text-center py-8">
+        <p>&copy; 2024 King's Kingdom Academy. All Rights Reserved.</p>
+        <a href="https://wa.me/1234567890" class="text-yellow-400 hover:underline">Chat with Us on WhatsApp</a>
+    </footer>
+
+
+    <!-- JavaScript for animations and menu toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.querySelector('#menuButton');
+            const navLinks = document.querySelector('#navLinks');
+
+            // Mobile menu toggle
+            menuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');  // Toggle visibility of the navLinks
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const animatedElements = document.querySelectorAll('.animate-in');
+            const menuButton = document.querySelector('#menuButton');
+            const navLinks = document.querySelector('ul');
+
+            // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.add('animate__fadeIn');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            animatedElements.forEach(element => observer.observe(element));
+            menuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                const isExpanded = navLinks.classList.contains('hidden');
+                menuButton.setAttribute('aria-expanded', !isExpanded);
+            });
+            // Mobile menu toggle
+            menuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,  // Animation duration in milliseconds
+            once: true       // Ensures animations occur only once
+        });
+    </script>
+
+</body>
+</html>
