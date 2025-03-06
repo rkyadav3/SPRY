@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPRY</title>
+    <title>SPRY - Global Business Solutions</title>
     
     <!-- Consolidated CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
@@ -60,30 +60,70 @@
             grid-template-columns: 1fr;
         }
     }
+    
+    /* Added gradient overlay for banner */
+    .banner-overlay {
+        background: linear-gradient(135deg, rgba(247, 155, 51, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+    
+    /* Services section styling */
+    .service-card {
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-10px);
+        border-bottom: 3px solid #f59e0b;
+    }
+    
+    /* Stats counter styling */
+    .stats-counter {
+        border-left: 4px solid #f59e0b;
+    }
+    
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Fixed navbar on scroll */
+    .navbar-fixed {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
 </style>
 
 <body>
     <!-- Navbar -->
-    <nav class="bg-gray-0 text-black p-6 fixed w-full top-0 z-10">
+    <nav id="mainNav" class="bg-white-0 text-black p-6 fixed w-full top-0 z-10 transition-all duration-300">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-2xl font-bold" aria-label="Go to homepage">SPRY</a>
+            <a href="#" class="text-2xl font-bold flex items-center" aria-label="Go to homepage">
+                <span class="text-yellow-500">S</span><span>PRY</span>
+                <span class="text-sm text-gray-600 ml-2 hidden sm:inline">Global Business Solutions</span>
+            </a>
             <ul id="navLinks" class="hidden md:flex space-x-6">
                 <li>
-                    <a href="#" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Home</a>
+                    <a href="#home" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Home</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Courses</a>
+                    <a href="#services" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Services</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Why Us</a>
+                    <a href="#why-us" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Why Us</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Pricing</a>
+                    <a href="#testimonials" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Testimonials</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Contact</a>
+                    <a href="#contact" class="hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 px-2">Contact</a>
                 </li>
             </ul>
+            <!-- CTA Button in Navbar -->
+            <a href="#contact" class="hidden lg:block bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition-all duration-300">
+                Get Started
+            </a>
             <!-- Mobile menu button -->
             <button id="menuButton" class="md:hidden text-black text-2xl" aria-expanded="false" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
@@ -92,48 +132,320 @@
         <!-- Mobile navigation menu (hidden by default) -->
         <div id="mobileNav" class="hidden md:hidden bg-white w-full py-4 px-4 shadow-lg animate-in">
             <ul class="space-y-4">
-                <li><a href="#" class="block hover:text-yellow-500 transition-all">Home</a></li>
-                <li><a href="#" class="block hover:text-yellow-500 transition-all">Courses</a></li>
-                <li><a href="#" class="block hover:text-yellow-500 transition-all">Why Us</a></li>
-                <li><a href="#" class="block hover:text-yellow-500 transition-all">Pricing</a></li>
-                <li><a href="#" class="block hover:text-yellow-500 transition-all">Contact</a></li>
+                <li><a href="#home" class="block hover:text-yellow-500 transition-all">Home</a></li>
+                <li><a href="#services" class="block hover:text-yellow-500 transition-all">Services</a></li>
+                <li><a href="#why-us" class="block hover:text-yellow-500 transition-all">Why Us</a></li>
+                <li><a href="#testimonials" class="block hover:text-yellow-500 transition-all">Testimonials</a></li>
+                <li><a href="#contact" class="block hover:text-yellow-500 transition-all">Contact</a></li>
+                <li class="pt-2">
+                    <a href="#contact" class="block bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition-all duration-300 text-center">
+                        Get Started
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- Banner Section -->
-    <section class="relative banner h-screen bg-cover bg-center">
-        <div class="absolute inset-0 bg-white-200 opacity-50"></div>
-        <div class="relative z-10 flex flex-col items-center justify-center h-full text-black text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-in">Take Your Business to a Global Level</h1>
-            <p class="text-lg md:text-2xl mb-8 animate-in">Join us to unlock new opportunities.</p>
-            <button
-                onclick="window.location.href='https://wa.me/+918949551269?text=I%27m%20interested%20to%20book%20demo'"
-                class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transform transition-all duration-300 hover:-translate-y-2 animate-in">
-                Contact Us
-            </button>
+    <section id="home" class="relative banner h-screen bg-cover bg-center">
+        <div class="absolute inset-0 banner-overlay"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 max-w-4xl mx-auto">
+            <span class="text-yellow-400 font-semibold mb-2 animate-in" data-aos="fade-down">GLOBAL BUSINESS EXPERTS</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-in" data-aos="fade-up">Take Your Business to a Global Level</h1>
+            <p class="text-lg md:text-xl mb-8 animate-in max-w-2xl" data-aos="fade-up" data-aos-delay="200">Unlock international markets with strategic guidance, local expertise, and comprehensive solutions tailored to your business needs.</p>
+            <div class="flex flex-col sm:flex-row gap-4 animate-in" data-aos="fade-up" data-aos-delay="300">
+                <button onclick="window.location.href='#contact'"
+                    class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transform transition-all duration-300 hover:-translate-y-1">
+                    Schedule a Consultation
+                </button>
+                <button onclick="window.location.href='#services'"
+                    class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transform transition-all duration-300 hover:-translate-y-1">
+                    Explore Our Services
+                </button>
+            </div>
+            <div class="absolute bottom-10 animate-bounce">
+                <a href="#services" class="text-white">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="py-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="stats-counter p-4" data-aos="fade-up">
+                    <h3 class="text-3xl font-bold text-yellow-500 mb-2">500+</h3>
+                    <p class="text-gray-700">Global Clients</p>
+                </div>
+                <div class="stats-counter p-4" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-3xl font-bold text-yellow-500 mb-2">35+</h3>
+                    <p class="text-gray-700">Countries Covered</p>
+                </div>
+                <div class="stats-counter p-4" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-3xl font-bold text-yellow-500 mb-2">98%</h3>
+                    <p class="text-gray-700">Success Rate</p>
+                </div>
+                <div class="stats-counter p-4" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-3xl font-bold text-yellow-500 mb-2">15+ Years</h3>
+                    <p class="text-gray-700">Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-yellow-500 font-semibold">OUR SERVICES</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Comprehensive Global Solutions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We provide expert guidance and strategic solutions to help your business expand internationally and succeed in global markets.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Market Entry Strategy</h3>
+                    <p class="text-gray-600 mb-4">Develop customized strategies to enter new international markets based on thorough research and analysis.</p>
+                    <a href="#contact" class="text-yellow-500 hover:text-yellow-600 font-medium flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">International Partnerships</h3>
+                    <p class="text-gray-600 mb-4">Identify and establish strategic partnerships with local businesses to accelerate your global expansion.</p>
+                    <a href="#contact" class="text-yellow-500 hover:text-yellow-600 font-medium flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Global Market Analysis</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive market research and analysis to identify opportunities and mitigate risks in international markets.</p>
+                    <a href="#contact" class="text-yellow-500 hover:text-yellow-600 font-medium flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-balance-scale text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Regulatory Compliance</h3>
+                    <p class="text-gray-600 mb-4">Navigate complex international regulations and ensure your business operations comply with local laws.</p>
+                    <a href="#contact" class="text-yellow-500 hover:text-yellow-600 font-medium flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cross-Cultural Training</h3>
+                    <p class="text-gray-600 mb-4">Prepare your team for success in different cultural environments with comprehensive training programs.</p>
+                    <a href="#contact" class="text-yellow-500 hover:text-yellow-600 font-medium flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-comments-dollar text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">International Business Consulting</h3>
+                    <p class="text-gray-600 mb-4">Expert advice on all aspects of global business operations, from logistics to marketing strategy.</p>
+                    <a href="#contact" class="text-yellow-500 hover:text-yellow-600 font-medium flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-yellow-500 font-semibold">WHY CHOOSE SPRY</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Your Trusted Partner in Global Expansion</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold mb-2">Experienced Team</h3>
+                                <p class="text-gray-600">Our team of experts has decades of combined experience in international business and market expansion.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold mb-2">Tailored Solutions</h3>
+                                <p class="text-gray-600">We develop customized strategies based on your unique business needs and objectives.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold mb-2">Global Network</h3>
+                                <p class="text-gray-600">Access our extensive network of partners and resources across more than 35 countries worldwide.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold mb-2">Proven Results</h3>
+                                <p class="text-gray-600">Track record of successful international expansions with measurable ROI for our clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#contact" class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 inline-block transition-all duration-300">
+                            Discover More
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-globe-americas text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Global Reach</h3>
+                        <p class="text-gray-600">Operations and partners in key markets across North America, Europe, Asia, and beyond.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-lightbulb text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Innovative Approach</h3>
+                        <p class="text-gray-600">Cutting-edge strategies that leverage the latest market trends and technologies.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-hands-helping text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Dedicated Support</h3>
+                        <p class="text-gray-600">Committed team providing ongoing support throughout your expansion journey.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-pie text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Data-Driven</h3>
+                        <p class="text-gray-600">Strategic decisions backed by comprehensive market research and analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-yellow-500 font-semibold">OUR PROCESS</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">How We Help You Expand Globally</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our proven methodology ensures a seamless expansion into international markets.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">1</div>
+                    <h3 class="text-xl font-bold mb-3">Assessment</h3>
+                    <p class="text-gray-600">We analyze your business and identify the most promising international markets for your expansion.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">2</div>
+                    <h3 class="text-xl font-bold mb-3">Strategy</h3>
+                    <p class="text-gray-600">Our team develops a customized expansion plan tailored to your specific business needs.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">3</div>
+                    <h3 class="text-xl font-bold mb-3">Implementation</h3>
+                    <p class="text-gray-600">We guide you through each step of the market entry process with expert support.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">4</div>
+                    <h3 class="text-xl font-bold mb-3">Growth</h3>
+                    <p class="text-gray-600">Ongoing support to help your business thrive and scale in new international markets.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Testimonial Section -->
-    <section class="testimonial-section-five bg-white-0 py-12">
+    <section id="testimonials" class="testimonial-section-five bg-gray-50 py-16">
         <div class="container mx-auto px-4">
-            <div class="header-five-title text-center mb-10" data-aos="fade-down">
-                <h2 class="text-yellow-500 text-3xl font-bold">They Trusted Us</h2>
-                <p class="text-gray-700 mt-2">We are proud to have happy customers who believe in our services</p>
+            <div class="header-five-title text-center mb-12" data-aos="fade-down">
+                <span class="text-yellow-500 font-semibold">SUCCESS STORIES</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">They Trusted Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">See what our clients have to say about their experience working with SPRY</p>
             </div>
             <div class="testimonial-slider-five mt-8">
                 <div class="testimonial-five">
                     <!-- Testimonial Item 1 -->
-                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
                         <div class="testimonial-content-five">
+                            <div class="mb-4 text-yellow-500">
+                                <i class="fas fa-quote-left text-3xl opacity-20"></i>
+                            </div>
                             <div class="testimonial-text mb-4">
                                 <p class="text-gray-700 italic">"SPRY helped our business expand internationally with their comprehensive market analysis and strategic guidance. Their expertise was invaluable to our growth."</p>
                             </div>
                             <div class="testimonial-users-group flex items-center justify-between">
                                 <div class="testimonial-users">
                                     <h5 class="font-semibold text-gray-800">Sarah Johnson</h5>
-                                    <p class="text-gray-500">Mumbai</p>
+                                    <p class="text-gray-500">CEO, TechVision Inc., Mumbai</p>
                                 </div>
                                 <div class="testimonial-ratings-five flex items-center space-x-1">
                                     <div class="rating flex">
@@ -148,20 +460,23 @@
                             </div>
                         </div>
                         <div class="testimonial-image mt-4">
-                            <img class="rounded-full w-16 h-16 mx-auto" src="/api/placeholder/64/64" alt="Sarah Johnson">
+                            <img class="rounded-full w-16 h-16 mx-auto object-cover" src="/api/placeholder/64/64" alt="Sarah Johnson">
                         </div>
                     </div>
 
                     <!-- Testimonial Item 2 -->
-                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
                         <div class="testimonial-content-five">
+                            <div class="mb-4 text-yellow-500">
+                                <i class="fas fa-quote-left text-3xl opacity-20"></i>
+                            </div>
                             <div class="testimonial-text mb-4">
                                 <p class="text-gray-700 italic">"Working with SPRY transformed our approach to global markets. Their team provided exceptional support and innovative solutions to complex challenges."</p>
                             </div>
                             <div class="testimonial-users-group flex items-center justify-between">
                                 <div class="testimonial-users">
                                     <h5 class="font-semibold text-gray-800">Rahul Sharma</h5>
-                                    <p class="text-gray-500">Delhi</p>
+                                    <p class="text-gray-500">Director, Global Ventures, Delhi</p>
                                 </div>
                                 <div class="testimonial-ratings-five flex items-center space-x-1">
                                     <div class="rating flex">
@@ -169,110 +484,307 @@
                                         <i class="fas fa-star text-yellow-400"></i>
                                         <i class="fas fa-star text-yellow-400"></i>
                                         <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                        <i class="fas fa-star-half-alt text-yellow-400">
+                                            <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-500 text-sm">4.5<span class="ml-1">ratings</span></p>
                                     </div>
-                                    <p class="text-gray-500 text-sm">4.5<span class="ml-1">ratings</span></p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonial-image mt-4">
-                            <img class="rounded-full w-16 h-16 mx-auto" src="/api/placeholder/64/64" alt="Rahul Sharma">
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial Item 3 -->
-                    <div class="testimonial-item bg-white rounded-lg shadow-lg p-6" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="testimonial-content-five">
-                            <div class="testimonial-text mb-4">
-                                <p class="text-gray-700 italic">"SPRY's consultants understood our unique business needs and helped us navigate international regulations seamlessly. A truly customer-focused company!"</p>
+                            <div class="testimonial-image mt-4">
+                                <img class="rounded-full w-16 h-16 mx-auto object-cover" src="/api/placeholder/64/64" alt="Rahul Sharma">
                             </div>
-                            <div class="testimonial-users-group flex items-center justify-between">
-                                <div class="testimonial-users">
-                                    <h5 class="font-semibold text-gray-800">Priya Patel</h5>
-                                    <p class="text-gray-500">Bangalore</p>
+                        </div>
+    
+                        <!-- Testimonial Item 3 -->
+                        <div class="testimonial-item bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="testimonial-content-five">
+                                <div class="mb-4 text-yellow-500">
+                                    <i class="fas fa-quote-left text-3xl opacity-20"></i>
                                 </div>
-                                <div class="testimonial-ratings-five flex items-center space-x-1">
-                                    <div class="rating flex">
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-gray-300"></i>
+                                <div class="testimonial-text mb-4">
+                                    <p class="text-gray-700 italic">"SPRY's expertise in regulatory compliance saved us countless hours and potential pitfalls. Their guidance was crucial for our successful market entry in Asia."</p>
+                                </div>
+                                <div class="testimonial-users-group flex items-center justify-between">
+                                    <div class="testimonial-users">
+                                        <h5 class="font-semibold text-gray-800">Maria Chen</h5>
+                                        <p class="text-gray-500">COO, NexGen Solutions, Singapore</p>
                                     </div>
-                                    <p class="text-gray-500 text-sm">4.0<span class="ml-1">ratings</span></p>
+                                    <div class="testimonial-ratings-five flex items-center space-x-1">
+                                        <div class="rating flex">
+                                            <i class="fas fa-star text-yellow-400"></i>
+                                            <i class="fas fa-star text-yellow-400"></i>
+                                            <i class="fas fa-star text-yellow-400"></i>
+                                            <i class="fas fa-star text-yellow-400"></i>
+                                            <i class="fas fa-star text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-500 text-sm">5.0<span class="ml-1">ratings</span></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonial-image mt-4">
-                            <img class="rounded-full w-16 h-16 mx-auto" src="/api/placeholder/64/64" alt="Priya Patel">
+                            <div class="testimonial-image mt-4">
+                                <img class="rounded-full w-16 h-16 mx-auto object-cover" src="/api/placeholder/64/64" alt="Maria Chen">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 px-8 bg-blue-900 text-white text-center">
-        <h2 class="text-2xl md:text-4xl font-bold mb-4 animate-in">Unlock Your Full Global Potential</h2>
-        <p class="mb-8 animate-in">Whether you're just starting your international journey or aiming to expand your existing global presence, SPRY offers the expertise and resources you need to succeed.</p>
-        <button onclick="window.location.href='https://wa.me/+918949551269?text=I%27m%20interested%20to%20book%20demo'"
-            class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transform transition-all duration-300 hover:-translate-y-2 animate-in">
-            Schedule a Consultation
-        </button>
-    </section>
-
-    <!-- WhatsApp Contact Floating Button -->
-    <a href="https://wa.me/+918949551269"
-        class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition hover:scale-110 transform duration-300 z-20"
-        target="_blank" aria-label="Chat with us on WhatsApp">
-        <i class="fab fa-whatsapp text-2xl"></i>
-    </a>
-
-    <!-- Footer Section -->
-    <footer class="bg-gray-900 text-white text-center py-8">
-        <p>&copy; 2025 SPRY. All Rights Reserved.</p>
-        <a href="https://wa.me/+918949551269" class="text-yellow-400 hover:underline">Chat with Us on WhatsApp</a>
-    </footer>
-
-    <!-- Consolidated JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        </section>
     
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Elements
-            const menuButton = document.querySelector('#menuButton');
-            const navLinks = document.querySelector('#navLinks');
-            const mobileNav = document.querySelector('#mobileNav');
-            const animatedElements = document.querySelectorAll('.animate-in');
-            
-            // Mobile menu toggle (improved)
-            menuButton.addEventListener('click', () => {
-                mobileNav.classList.toggle('hidden');
-                const isExpanded = !mobileNav.classList.contains('hidden');
-                menuButton.setAttribute('aria-expanded', isExpanded);
-            });
-            
-            // Animation on scroll
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            animatedElements.forEach(element => observer.observe(element));
-            
-            // Initialize AOS animation library
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-4 bg-white">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div data-aos="fade-right">
+                        <span class="text-yellow-500 font-semibold">GET IN TOUCH</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Start Your Global Journey Today</h2>
+                        <p class="text-gray-600 mb-8">Ready to take your business to international markets? Contact us today to schedule a consultation with our global business experts.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-yellow-500"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold mb-1">Our Location</h3>
+                                    <p class="text-gray-600">123 Business Avenue, Mumbai, India 400001</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-yellow-500"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold mb-1">Email Us</h3>
+                                    <p class="text-gray-600">info@spryglobal.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone-alt text-yellow-500"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold mb-1">Call Us</h3>
+                                    <p class="text-gray-600">+91 123 456 7890</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-800 text-white rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-6">Request a Consultation</h3>
+                        <form id="contactForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500" placeholder="Your name" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500" placeholder="Your email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="company" class="block text-gray-700 font-medium mb-2">Company Name</label>
+                                <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500" placeholder="Your company">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="service" class="block text-gray-700 font-medium mb-2">Service Interested In</label>
+                                <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                                    <option value="">Select a service</option>
+                                    <option value="market-entry">Market Entry Strategy</option>
+                                    <option value="partnerships">International Partnerships</option>
+                                    <option value="market-analysis">Global Market Analysis</option>
+                                    <option value="compliance">Regulatory Compliance</option>
+                                    <option value="training">Cross-Cultural Training</option>
+                                    <option value="consulting">International Business Consulting</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500" placeholder="Tell us about your needs"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Newsletter Section -->
+        <section class="bg-yellow-500 py-16 px-4">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-8 md:mb-0 text-center md:text-left">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Subscribe to Our Newsletter</h3>
+                        <p class="text-gray-800">Stay updated with the latest trends in global business</p>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <form class="flex flex-col sm:flex-row gap-4">
+                            <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg focus:outline-none">
+                            <button type="submit" class="bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12 px-4">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <a href="#" class="text-2xl font-bold flex items-center mb-6">
+                            <span class="text-yellow-500">S</span><span>PRY</span>
+                        </a>
+                        <p class="text-gray-400 mb-6">Your trusted partner for global business expansion with tailored solutions and expert guidance.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-semibold mb-6">Quick Links</h5>
+                        <ul class="space-y-3">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300">Services</a></li>
+                            <li><a href="#why-us" class="text-gray-400 hover:text-white transition-colors duration-300">Why Choose Us</a></li>
+                            <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors duration-300">Testimonials</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-semibold mb-6">Our Services</h5>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Market Entry Strategy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">International Partnerships</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Global Market Analysis</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Regulatory Compliance</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Cross-Cultural Training</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-semibold mb-6">Contact Us</h5>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-yellow-500 mt-1 mr-3"></i>
+                                <span class="text-gray-400">123 Business Avenue, Mumbai, India 400001</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope text-yellow-500 mt-1 mr-3"></i>
+                                <span class="text-gray-400">info@spryglobal.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt text-yellow-500 mt-1 mr-3"></i>
+                                <span class="text-gray-400">+91 123 456 7890</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                    <p class="text-gray-400">&copy; 2025 SPRY Global Business Solutions. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    
+        <!-- Consolidated Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        
+        <script>
+            // Initialize AOS
             AOS.init({
-                duration: 1000,
+                duration: 800,
+                easing: 'ease-in-out',
                 once: true
             });
-        });
-    </script>
-</body>
-</html>
+            
+            // Mobile menu toggle
+            document.getElementById('menuButton').addEventListener('click', function() {
+                const mobileNav = document.getElementById('mobileNav');
+                mobileNav.classList.toggle('hidden');
+                
+                // Animate in the menu when shown
+                if (!mobileNav.classList.contains('hidden')) {
+                    setTimeout(() => {
+                        mobileNav.classList.add('opacity-100');
+                    }, 10);
+                } else {
+                    mobileNav.classList.remove('opacity-100');
+                }
+            });
+            
+            // Navbar scrolling effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.getElementById('mainNav');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('navbar-fixed');
+                } else {
+                    navbar.classList.remove('navbar-fixed');
+                }
+            });
+            
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobileNav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.getElementById('mobileNav').classList.add('hidden');
+                });
+            });
+            
+            // Handle contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically add AJAX to submit the form
+                alert('Thank you for your message! We will contact you shortly.');
+                this.reset();
+            });
+        </script>
+    </body>
+    </html>
