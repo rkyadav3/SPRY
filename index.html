@@ -63,7 +63,7 @@
     
     /* Added gradient overlay for banner */
     .banner-overlay {
-        background: linear-gradient(135deg, rgba(247, 155, 51, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+        background: linear-gradient(135deg, rgba(206, 197, 186, 0.7) 0%, rgba(27, 27, 27, 0.4) 100%);
     }
     
     /* Services section styling */
@@ -533,7 +533,7 @@
     
         <!-- Contact Section -->
         <section id="contact" class="py-16 px-4 bg-white">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div data-aos="fade-right">
                         <span class="text-yellow-500 font-semibold">GET IN TOUCH</span>
@@ -549,7 +549,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h3 class="text-lg font-semibold mb-1">Our Location</h3>
-                                    <p class="text-gray-600">123 Business Avenue, Mumbai, India 400001</p>
+                                    <p class="text-gray-600">C-1/27 Opp. Bharat Apartments Chitrakoot, Vaishali Nagar, Ajmer Road, Jaipur, Rajasthan 302021</p>
                                 </div>
                             </div>
                             
@@ -561,7 +561,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h3 class="text-lg font-semibold mb-1">Email Us</h3>
-                                    <p class="text-gray-600">info@spryglobal.com</p>
+                                    <p class="text-gray-600">spryteam4@gmail.com</p>
                                 </div>
                             </div>
                             
@@ -573,7 +573,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h3 class="text-lg font-semibold mb-1">Call Us</h3>
-                                    <p class="text-gray-600">+91 123 456 7890</p>
+                                    <p class="text-gray-600">+91 8529890535</p>
+                                    <p class="text-gray-600">+91 8209985197</p>
                                 </div>
                             </div>
                         </div>
@@ -739,53 +740,73 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
         
-        <script>
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
-            
-            // Mobile menu toggle
-            document.getElementById('menuButton').addEventListener('click', function() {
-                const mobileNav = document.getElementById('mobileNav');
-                mobileNav.classList.toggle('hidden');
-                
-                // Animate in the menu when shown
-                if (!mobileNav.classList.contains('hidden')) {
-                    setTimeout(() => {
-                        mobileNav.classList.add('opacity-100');
-                    }, 10);
-                } else {
-                    mobileNav.classList.remove('opacity-100');
-                }
-            });
-            
-            // Navbar scrolling effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.getElementById('mainNav');
-                if (window.scrollY > 100) {
-                    navbar.classList.add('navbar-fixed');
-                } else {
-                    navbar.classList.remove('navbar-fixed');
-                }
-            });
-            
-            // Close mobile menu when a link is clicked
-            document.querySelectorAll('#mobileNav a').forEach(link => {
-                link.addEventListener('click', function() {
-                    document.getElementById('mobileNav').classList.add('hidden');
-                });
-            });
-            
-            // Handle contact form submission
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Here you would typically add AJAX to submit the form
-                alert('Thank you for your message! We will contact you shortly.');
-                this.reset();
-            });
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+
+    // Mobile menu toggle
+    document.getElementById('menuButton').addEventListener('click', function() {
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.classList.toggle('hidden');
+
+        // Animate in the menu when shown
+        if (!mobileNav.classList.contains('hidden')) {
+            setTimeout(() => {
+                mobileNav.classList.add('opacity-100');
+            }, 10);
+        } else {
+            mobileNav.classList.remove('opacity-100');
+        }
+    });
+
+    // Navbar scrolling effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNav');
+        if (window.scrollY > 100) {
+            navbar.classList.add('navbar-fixed');
+        } else {
+            navbar.classList.remove('navbar-fixed');
+        }
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#mobileNav a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('mobileNav').classList.add('hidden');
+        });
+    });
+
+    // Initialize EmailJS
+    (function(){
+        emailjs.init("CtQF_ufMPB9b21ZHi"); 
+    })();
+
+    // Handle contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+
+        emailjs.send("srpy4you", "template_uraxz2m", formData)
+        .then(function(response) {
+            alert("Thank you! Your message has been sent.");
+            document.getElementById("contactForm").reset();
+        }, function(error) {
+            alert("Oops! Something went wrong. Please try again.");
+            console.error("Error:", error);
+        });
+    });
+</script>
+
     </body>
     </html>
